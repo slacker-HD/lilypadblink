@@ -52,13 +52,13 @@ void loop()
         Zval += analogRead(ZPIN) / 3;
     }
 
-    analogWrite(REDPIN1, 255 - abs(Xval - Xbase) > 252 ? 255 : 255 - abs(Xval - Xbase));
-    analogWrite(GREENPIN1, 255 - abs(Yval - Ybase) > 252 ? 255 : 255 - abs(Yval - Ybase));
-    analogWrite(BLUEPIN1, 255 - abs(Zval - Zbase) > 252 ? 255 : 255 - abs(Zval - Zbase));
+    analogWrite(REDPIN1, abs(Xval - Xbase) > 3 ? 255 : 255 - abs(Xval - Xbase) / 2);
+    analogWrite(GREENPIN1, abs(Yval - Ybase) > 3 ? 255 : 255 - abs(Yval - Ybase) / 2);
+    analogWrite(BLUEPIN1, abs(Zval - Zbase) > 3 ? 255 : 255 - abs(Zval - Zbase) / 2);
 
-    analogWrite(REDPIN2, 255 - abs(Zval - Zbase) > 252 ? 255 : 255 - abs(Zval - Zbase));
-    analogWrite(GREENPIN2, 255 - abs(Yval - Ybase) > 252 ? 255 : 255 - abs(Yval - Ybase));
-    analogWrite(BLUEPIN2, 255 - abs(Xval - Xbase) > 252 ? 255 : 255 - abs(Xval - Xbase));
+    analogWrite(REDPIN2, abs(Zval - Zbase) > 3 ? 255 : 255 - abs(Zval - Zbase) / 2);
+    analogWrite(GREENPIN2, abs(Yval - Ybase) > 3 ? 255 : 255 - abs(Yval - Ybase) / 2);
+    analogWrite(BLUEPIN2, abs(Xval - Xbase) > 3 ? 255 : 255 - abs(Xval - Xbase) / 2);
 
     Xbase = Xval;
     Ybase = Yval;
